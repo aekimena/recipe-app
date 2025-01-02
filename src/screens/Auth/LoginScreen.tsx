@@ -7,7 +7,7 @@ import {AuthInput} from '../../components/ui/inputs/AuthInput';
 import {VSpacer} from '../../components/ui/Spacer';
 import {textStyles, viewStyles} from '../../constants/style';
 import {CustomButton} from '../../components/ui/Buttons/CustomButton';
-import {IMAGES} from '../../assets';
+import {IMAGES} from '../../assets/images';
 import {AuthScreenStack} from '../../types/navigator.types';
 import {SCREENS} from '../../navigators/routes';
 import {REGEX} from '../../utils/regex';

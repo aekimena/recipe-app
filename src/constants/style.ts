@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 export const textStyles = StyleSheet.create({
+  font_12_regular: {
+    fontSize: 12,
+  },
   font_14_bold: {
     fontSize: 14,
   },
