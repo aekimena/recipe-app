@@ -1,7 +1,9 @@
-import {View, Text, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {AuthNavigator} from './AuthNavigator';
+import {Authenticator} from './Authenticator';
+import {AppNavigator} from './AppNavigator';
+import {Verifier} from './Verifier';
 
 type Props = {};
 
@@ -9,7 +11,11 @@ const RootNavigator = (props: Props) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
-        <AuthNavigator />
+        <Authenticator>
+          <Verifier>
+            <AppNavigator />
+          </Verifier>
+        </Authenticator>
       </NavigationContainer>
     </SafeAreaView>
   );

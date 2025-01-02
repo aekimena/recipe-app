@@ -34,9 +34,14 @@ export const CustomButton = ({
 }: Props) => {
   return (
     <TouchableOpacity
+      disabled={disabled}
       onPress={onPress}
       activeOpacity={0.8}
-      style={{...styles.container, ...buttonStyle}}>
+      style={{
+        ...styles.container,
+        ...buttonStyle,
+        opacity: disabled ? 0.8 : 1,
+      }}>
       {loading ? (
         <ActivityIndicator color={colors.white} size={40} />
       ) : (

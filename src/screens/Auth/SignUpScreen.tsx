@@ -1,4 +1,4 @@
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import colors from '../../constants/colors';
 import {ScreenContainer} from '../../components/layouts/ScreenContainer';
@@ -7,18 +7,26 @@ import {AuthInput} from '../../components/ui/inputs/AuthInput';
 import {VSpacer} from '../../components/ui/Spacer';
 import {textStyles} from '../../constants/style';
 import {CustomButton} from '../../components/ui/Buttons/CustomButton';
-import {AuthRouteStack} from '../../types/navigator.types';
+import {AuthScreenStack} from '../../types/navigator.types';
 import {SCREENS} from '../../navigators/routes';
-import IonIcons from 'react-native-vector-icons/ionIcons';
+import {REGEX} from '../../utils/regex';
 
-export const SignUpScreen = ({navigation}: {navigation: AuthRouteStack}) => {
+export const SignUpScreen = ({navigation}: {navigation: AuthScreenStack}) => {
   // states
 
-  const [passwordVisible, setPasswordVisible] = useState(true);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmVisible, setConfirmVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+
+  const register = () => {
+    if (password !== confirmPass) {
+      return;
+    }
+    navigation.navigate('ENTER_CODE', {code: '4567'});
+  };
 
   return (
     <ScreenContainer>
@@ -29,21 +37,35 @@ export const SignUpScreen = ({navigation}: {navigation: AuthRouteStack}) => {
               <VSpacer size={50} />
 
               <View style={{gap: 30}}>
-                <AuthInput label="Full Name" />
-                <AuthInput label="Email" />
+                <AuthInput label="Full Name" onChangeText={setName} />
+                <AuthInput label="Email" onChangeText={setEmail} />
                 <AuthInput
                   label="Password"
                   secureText={!passwordVisible}
-                  // rightIcon={
-                  //   <IonIcons name="eye" color={colors.black200} size={20} />
-                  // }
+                  onChangeText={setPassword}
+                  rightIcon={<Text>//</Text>}
+                  onRightIconPress={() => setPasswordVisible(!passwordVisible)}
                 />
-                <AuthInput label="Confirm Password" />
+                <AuthInput
+                  label="Confirm Password"
+                  onChangeText={setConfirmPass}
+                  rightIcon={<Text>//</Text>}
+                  secureText={!confirmVisible}
+                  onRightIconPress={() => setConfirmVisible(!confirmVisible)}
+                />
               </View>
 
               <VSpacer size={30} bottom={0} />
 
-              <CustomButton title="Register" disabled />
+              <CustomButton
+                title="Register"
+                disabled={
+                  name == '' ||
+                  !REGEX.emailRegex.test(email) ||
+                  !REGEX.passwordRegex.test(password)
+                }
+                onPress={register}
+              />
               <VSpacer size={30} />
             </>
           }

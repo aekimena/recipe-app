@@ -1,11 +1,4 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import colors from '../../constants/colors';
 import {ScreenContainer} from '../../components/layouts/ScreenContainer';
@@ -15,16 +8,27 @@ import {VSpacer} from '../../components/ui/Spacer';
 import {textStyles, viewStyles} from '../../constants/style';
 import {CustomButton} from '../../components/ui/Buttons/CustomButton';
 import {IMAGES} from '../../assets';
-import {AuthRouteStack} from '../../types/navigator.types';
+import {AuthScreenStack} from '../../types/navigator.types';
 import {SCREENS} from '../../navigators/routes';
-// import IonIcons from 'react-native-vector-icons/ionIcons';
+import {REGEX} from '../../utils/regex';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../store/store';
+import {setUserToken} from '../../store/authStore';
 
-export const LoginScreen = ({navigation}: {navigation: AuthRouteStack}) => {
+export const LoginScreen = ({navigation}: {navigation: AuthScreenStack}) => {
   // states
 
   const [passwordVisible, setPasswordVisible] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // redux
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const login = () => {
+    dispatch(setUserToken('12344'));
+  };
   return (
     <ScreenContainer>
       <View style={{flex: 1, backgroundColor: colors.white}}>
@@ -34,20 +38,19 @@ export const LoginScreen = ({navigation}: {navigation: AuthRouteStack}) => {
               <VSpacer size={50} />
 
               <View style={{gap: 30}}>
-                <AuthInput label="Email" />
+                <AuthInput label="Email" onChangeText={setEmail} />
                 <AuthInput
                   label="Password"
                   secureText={!passwordVisible}
-                  // rightIcon={
-                  //   <IonIcons name="eye" color={colors.black200} size={20} />
-                  // }
+                  rightIcon={<Text>//</Text>}
+                  onChangeText={setPassword}
                 />
               </View>
               <VSpacer size={20} bottom={0} />
               <TouchableOpacity onPress={() => null}>
                 <Text
                   style={{
-                    ...textStyles.font_14_medium,
+                    ...textStyles.font_14_regular,
                     color: colors.black100,
                     textAlign: 'right',
                   }}>
@@ -55,7 +58,14 @@ export const LoginScreen = ({navigation}: {navigation: AuthRouteStack}) => {
                 </Text>
               </TouchableOpacity>
               <VSpacer size={20} bottom={0} />
-              <CustomButton title="Login" disabled />
+              <CustomButton
+                title="Login"
+                disabled={
+                  !REGEX.emailRegex.test(email) ||
+                  !REGEX.passwordRegex.test(password)
+                }
+                onPress={login}
+              />
               <VSpacer size={30} />
               <View
                 style={{

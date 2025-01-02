@@ -17,7 +17,7 @@ export const AuthLayout = ({
   body,
 }: Props) => {
   return (
-    <ScrollView>
+    <ScrollView keyboardShouldPersistTaps="always">
       <View style={{paddingHorizontal: 20}}>
         <View style={{height: height * 0.15}}></View>
         <View style={{height: height * 0.7}}>{body}</View>

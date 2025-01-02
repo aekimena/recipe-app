@@ -1,4 +1,11 @@
-import {ScrollView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import colors from '../../../constants/colors';
 import {textStyles, viewStyles} from '../../../constants/style';
@@ -9,6 +16,7 @@ interface Props {
   disabled?: boolean;
   onChangeText?: (value: string) => void;
   rightIcon?: JSX.Element;
+  onRightIconPress?: () => void;
 }
 
 export const AuthInput = ({
@@ -17,6 +25,7 @@ export const AuthInput = ({
   disabled,
   onChangeText,
   rightIcon,
+  onRightIconPress,
 }: Props) => {
   return (
     <View style={styles.container}>
@@ -29,9 +38,13 @@ export const AuthInput = ({
         editable={!disabled}
         secureTextEntry={secureText}
         onChangeText={onChangeText}
-        style={{flex: 1, height: '100%'}}
+        style={{flex: 1, height: '100%', color: colors.black100}}
       />
-      {rightIcon && rightIcon}
+      {rightIcon && (
+        <TouchableOpacity onPress={onRightIconPress}>
+          {rightIcon}
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
