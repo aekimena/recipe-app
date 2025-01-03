@@ -1,6 +1,7 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SCREENS} from '../navigators/routes';
 import {RouteProp} from '@react-navigation/native';
+import {RecipeProps} from './bookmark.type';
 
 export type AuthNavigatorType = {
   LOGIN: undefined;
@@ -14,6 +15,11 @@ export type TabsNavigatorProps = {
   NOTIFICATIONS: undefined;
   BOOKMARKS: undefined;
 };
+
+export type AppNavigatorProps = {
+  TABS: undefined;
+  NON_TABS: undefined;
+};
 export type AuthNavigatorParam = {
   [SCREENS.LOGIN]: undefined;
   [SCREENS.SIGN_UP]: undefined;
@@ -22,6 +28,19 @@ export type AuthNavigatorParam = {
   };
 };
 
-export type AuthScreenStack = NativeStackNavigationProp<AuthNavigatorParam>;
+export type RecipeNavigatorProp = {
+  [SCREENS.RECIPE]: {
+    recipe: RecipeProps;
+  };
+};
 
+export type RecipeNavigatorParam = {
+  [SCREENS.NON_TABS]: {
+    screen: keyof RecipeNavigatorProp;
+    params?: RecipeNavigatorProp[keyof RecipeNavigatorProp];
+  };
+};
+
+export type AuthScreenStack = NativeStackNavigationProp<AuthNavigatorParam>;
 export type AuthRouteStack = RouteProp<AuthNavigatorParam>;
+export type RecipeScreenStack = NativeStackNavigationProp<RecipeNavigatorParam>;

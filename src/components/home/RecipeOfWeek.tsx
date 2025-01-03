@@ -7,40 +7,26 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {textStyles, viewStyles} from '../../constants/style';
 import {VSpacer} from '../ui/Spacer';
 import {dummyRecipeOfWeek} from '../../constants/data';
-import colors from '../../constants/colors';
+import {SeeMoreHeader} from '../ui/Headers/SeeMoreHeader';
+import {RecipeView} from '../ui/Blocks/RecipeView';
 
 export const RecipeOfWeek = () => {
   return (
     <View>
-      <View style={{...viewStyles.flexRowBtw, paddingHorizontal: 20}}>
-        <Text>Recipes of the Week</Text>
-        <Text>See all</Text>
-      </View>
+      <SeeMoreHeader
+        leftText="Recipes of the Week"
+        rightText="See all"
+        onRightPress={() => null}
+      />
       <VSpacer size={20} />
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{gap: 15, paddingHorizontal: 20}}>
         {dummyRecipeOfWeek.map((item, index) => (
-          <Pressable key={index} style={{width: 220}}>
-            <Image
-              source={{uri: item.image}}
-              style={{width: '100%', height: 180, borderRadius: 10}}
-            />
-            <VSpacer size={10} />
-            <Text
-              style={{...textStyles.font_16_medium, color: colors.black100}}>
-              {item.title}
-            </Text>
-            <VSpacer size={3} />
-            <Text
-              style={{...textStyles.font_14_regular, color: colors.black200}}>
-              By {item?.author}
-            </Text>
-          </Pressable>
+          <RecipeView item={item} key={index} />
         ))}
       </ScrollView>
     </View>
