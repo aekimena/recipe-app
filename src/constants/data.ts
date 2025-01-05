@@ -1,4 +1,16 @@
 import {BookmarkCollectionProps, RecipeProps} from '../types/bookmark.type';
+import {NotificationType} from '../types/enums';
+import {NotificationProps} from '../types/notifications.types';
+
+export const dummyUser = {
+  firstName: 'Ae',
+  lastName: 'Kimena',
+  email: 'aekiemnawork@gmail.com',
+  verified: true,
+  followers: 4,
+  following: 5,
+  profileImageUrl: null,
+};
 
 export const dummyCategories = [
   {name: 'Braakfast', image: 'https://img.icons8.com/color/48/breakfast.png'},
@@ -161,4 +173,44 @@ export const dummyBookmarkCollections: Array<BookmarkCollectionProps> = [
   {collection: 'Party Dishes', recipes: dummyRecommendations.slice(0, 2)},
   {collection: 'Reception', recipes: dummyRecommendations.slice(0, 3)},
   {collection: 'For Babe', recipes: dummyRecommendations},
+];
+
+export const dummyNotifications: Array<NotificationProps> = [
+  {
+    title: 'You have a new review from Wendy Williams',
+    type: NotificationType.NEW_REVIEW,
+    timeStamp: new Date(Date.now()).toISOString(),
+    seen: false,
+    user: dummyUser,
+    recipe: dummyRecommendations[0],
+  },
+  {
+    title: 'Wendy Williams liked your recipe',
+    type: NotificationType.RECIPE_LIKED,
+    timeStamp: new Date(Date.now()).toISOString(),
+    seen: false,
+    user: dummyUser,
+  },
+  {
+    title: 'Wendy Williams just followed you',
+    type: NotificationType.NEW_FOLLOWER,
+    timeStamp: new Date(Date.now()).toISOString(),
+    seen: true,
+    user: dummyUser,
+  },
+  {
+    title: "check out Wendy Williams' new recipe",
+    type: NotificationType.NEW_RECIPE,
+    timeStamp: new Date(Date.now()).toISOString(),
+    seen: true,
+    recipe: dummyRecommendations[0],
+  },
+  {
+    title:
+      "Congratulationa! Chicken salad recipe is number 1 on this week's recipes",
+    type: NotificationType.RECIPE_OF_WEEK,
+    timeStamp: new Date(Date.now()).toISOString(),
+    seen: true,
+    recipe: dummyRecommendations[0],
+  },
 ];

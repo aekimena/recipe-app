@@ -9,17 +9,17 @@ import {
   View,
 } from 'react-native';
 import React, {useEffect, useMemo, useState} from 'react';
-import {ScreenContainer} from '../../components/layouts/ScreenContainer';
-import {RecipeRouteStack} from '../../types/navigator.types';
-import {viewStyles} from '../../constants/style';
-import {BookmarkOutline, ChevronLeft, LoveOutline} from '../../assets/svgs';
-import colors from '../../constants/colors';
-import {useSafeTops} from '../../hooks/useSafeTops';
-import {VSpacer} from '../../components/ui/Spacer';
+import {ScreenContainer} from '../../../components/layouts/ScreenContainer';
+import {RecipeRouteStack} from '../../../types/navigator.types';
+import {viewStyles} from '../../../constants/style';
+import {BookmarkOutline, ChevronLeft, LoveOutline} from '../../../assets/svgs';
+import colors from '../../../constants/colors';
+import {useSafeTops} from '../../../hooks/useSafeTops';
+import {VSpacer} from '../../../components/ui/Spacer';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {RecipeSheetContent} from '../../components/recipe/RecipeSheetContent';
+import {RecipeSheetContent} from '../../../components/recipe/RecipeSheetContent';
 
 const {width: screenW} = Dimensions.get('window');
 
@@ -80,17 +80,19 @@ export const RecipeScreen = () => {
               </View>
             </View>
           </View>
-          <View style={styles.indicatorContainer}>
-            {recipeData?.image.map((indexes, index) => (
-              <View
-                style={{
-                  ...styles.indicator,
-                  width: currentIndex == index ? 10 : 5,
-                }}
-                key={index}
-              />
-            ))}
-          </View>
+          {recipeData?.image?.length > 1 && (
+            <View style={styles.indicatorContainer}>
+              {recipeData?.image.map((indexes, index) => (
+                <View
+                  style={{
+                    ...styles.indicator,
+                    width: currentIndex == index ? 10 : 5,
+                  }}
+                  key={index}
+                />
+              ))}
+            </View>
+          )}
         </View>
 
         <BottomSheet

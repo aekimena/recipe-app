@@ -16,6 +16,7 @@ import {CustomButton} from '../../components/ui/Buttons/CustomButton';
 import {useDispatch} from 'react-redux';
 import {AppDispatch} from '../../store/store';
 import {setUserProfile} from '../../store/profileStore';
+import {dummyUser} from '../../constants/data';
 
 export const CodeScreen = ({route}: {route: AuthRouteStack}) => {
   // states
@@ -34,17 +35,7 @@ export const CodeScreen = ({route}: {route: AuthRouteStack}) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const verifyCode = () => {
-    dispatch(
-      setUserProfile({
-        firstName: 'Ae',
-        lastName: 'Kimena',
-        email: 'aekiemnawork@gmail.com',
-        verified: true,
-        followers: 4,
-        following: 5,
-        profileImageUrl: null,
-      }),
-    );
+    dispatch(setUserProfile(dummyUser));
   };
 
   return (

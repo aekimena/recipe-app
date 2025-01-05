@@ -5,4 +5,5 @@ export default {
   black300: '#494949',
   black400: '#B6B6B6',
   forest100: '#7BAA69',
+  forest200: '#ECF3EA',
 };

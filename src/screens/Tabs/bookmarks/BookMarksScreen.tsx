@@ -2,7 +2,7 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {ScreenContainer} from '../../../components/layouts/ScreenContainer';
 import colors from '../../../constants/colors';
-import {Header} from '../../../components/bookmarks/Header';
+import {Header} from '../../../components/ui/Headers/PageHeader';
 import {VSpacer} from '../../../components/ui/Spacer';
 import {SearchInput} from '../../../components/ui/inputs/SearchInput';
 import {Collections} from '../../../components/bookmarks/Collections';
@@ -21,7 +21,7 @@ export const BookMarksScreen = () => {
           ListHeaderComponent={
             <>
               <VSpacer size={30} />
-              <Header />
+              <Header title="Bookmarks" />
               <VSpacer size={20} />
               <SearchInput placeholder="Search saved recipes" />
               <VSpacer size={20} />
