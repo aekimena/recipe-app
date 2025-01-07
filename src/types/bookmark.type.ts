@@ -1,3 +1,5 @@
+import {UserProfileProps} from './profile.types';
+
 export type RecipeProps = {
   title: string;
   // author: string;
@@ -26,4 +28,10 @@ export type RecipeProps = {
 export type BookmarkCollectionProps = {
   collection: string;
   recipes: Array<RecipeProps>;
+};
+
+export type ReviewProps = {
+  user: UserProfileProps;
+  rating: number;
+  comment: string;
 };

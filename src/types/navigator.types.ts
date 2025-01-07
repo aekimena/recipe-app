@@ -1,6 +1,6 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SCREENS} from '../navigators/routes';
-import {RouteProp} from '@react-navigation/native';
+import {NavigatorScreenParams, RouteProp} from '@react-navigation/native';
 import {RecipeProps} from './bookmark.type';
 
 export type AuthNavigatorType = {
@@ -16,9 +16,13 @@ export type TabsNavigatorProps = {
   BOOKMARKS: undefined;
 };
 
+export type NonTabsNavigatorProps = {
+  RECIPE_STACK: NavigatorScreenParams<RecipeNavigatorProp>;
+};
+
 export type AppNavigatorProps = {
   TABS: undefined;
-  NON_TABS: undefined;
+  NON_TABS: NavigatorScreenParams<NonTabsNavigatorProps>;
 };
 export type AuthNavigatorParam = {
   [SCREENS.LOGIN]: undefined;
@@ -29,15 +33,21 @@ export type AuthNavigatorParam = {
 };
 
 export type RecipeNavigatorProp = {
-  [SCREENS.RECIPE]: {
-    recipe: RecipeProps;
-  };
+  [SCREENS.RECIPE]: {recipe: RecipeProps};
+  [SCREENS.WRITE_REVIEW]: {recipe: RecipeProps};
+};
+
+export type RecipeStackNavigatorProp = {
+  [SCREENS.RECIPE_STACK]: NavigatorScreenParams<RecipeNavigatorProp>;
 };
 
 export type RecipeNavigatorParam = {
   [SCREENS.NON_TABS]: {
-    screen: keyof RecipeNavigatorProp;
-    params?: RecipeNavigatorProp[keyof RecipeNavigatorProp];
+    screen: keyof RecipeStackNavigatorProp;
+    params?: {
+      screen: keyof RecipeNavigatorProp;
+      params?: RecipeNavigatorProp[keyof RecipeNavigatorProp];
+    };
   };
 };
 
@@ -46,6 +56,12 @@ export type AuthRouteStack = RouteProp<AuthNavigatorParam>;
 export type RecipeScreenStack = NativeStackNavigationProp<RecipeNavigatorParam>;
 export type RecipeRouteStack = RouteProp<{
   [SCREENS.RECIPE]: {
+    recipe: RecipeProps;
+  };
+}>;
+
+export type WriteReviewRoute = RouteProp<{
+  [SCREENS.WRITE_REVIEW]: {
     recipe: RecipeProps;
   };
 }>;

@@ -6,7 +6,7 @@ import colors from '../../constants/colors';
 import {VSpacer} from '../ui/Spacer';
 
 interface Props {
-  recipe?: RecipeProps;
+  recipe: RecipeProps;
 }
 
 export const Instructions = ({recipe}: Props) => {

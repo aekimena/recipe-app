@@ -8,11 +8,21 @@ interface Props {
   leftText?: string;
   rightText?: string | null;
   onRightPress?: () => void;
+  padHorizontal?: boolean;
 }
 
-export const SeeMoreHeader = ({leftText, rightText, onRightPress}: Props) => {
+export const SeeMoreHeader = ({
+  leftText,
+  rightText,
+  onRightPress,
+  padHorizontal = true,
+}: Props) => {
   return (
-    <View style={{...viewStyles.flexRowBtw, paddingHorizontal: 20}}>
+    <View
+      style={{
+        ...viewStyles.flexRowBtw,
+        paddingHorizontal: padHorizontal ? 20 : 0,
+      }}>
       <Text style={{...textStyles.font_14_medium, color: colors.black100}}>
         {leftText}
       </Text>

@@ -8,7 +8,7 @@ import {Ingredients} from './Ingredients';
 
 interface Props {
   activeTab?: number;
-  recipe?: RecipeProps;
+  recipe: RecipeProps;
 }
 
 export const TabsContent = ({recipe, activeTab}: Props) => {
@@ -16,7 +16,7 @@ export const TabsContent = ({recipe, activeTab}: Props) => {
     <View style={{paddingHorizontal: 20}}>
       {activeTab == 1 && <Ingredients recipe={recipe} />}
       {activeTab == 2 && <Instructions recipe={recipe} />}
-      {activeTab == 3 && <Reviews />}
+      {activeTab == 3 && <Reviews recipe={recipe} />}
     </View>
   );
 };

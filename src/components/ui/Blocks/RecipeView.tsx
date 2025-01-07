@@ -22,8 +22,11 @@ export const RecipeView = ({item, width = 220, height = 180}: Props) => {
       style={{width}}
       onPress={() =>
         navigation.navigate(SCREENS.NON_TABS, {
-          screen: SCREENS.RECIPE,
-          params: {recipe: item},
+          screen: SCREENS.RECIPE_STACK,
+          params: {
+            screen: SCREENS.RECIPE,
+            params: {recipe: item},
+          },
         })
       }>
       <View style={{width: '100%', height}}>
@@ -31,15 +34,7 @@ export const RecipeView = ({item, width = 220, height = 180}: Props) => {
           source={{uri: item.image[0]}}
           style={{width: '100%', height, borderRadius: 10}}
         />
-        <View
-          style={{
-            justifyContent: 'space-between',
-            height,
-            position: 'absolute',
-            right: 0,
-            alignItems: 'flex-end',
-            padding: 10,
-          }}>
+        <View style={{...styles.actionIcons, height}}>
           <Pressable style={styles.iconContainer}>
             <LoveOutline size={17} color={colors.white} />
           </Pressable>
@@ -70,5 +65,13 @@ const styles = StyleSheet.create({
     ...viewStyles.allCenter,
     backgroundColor: 'rgba(0,0,0,0.3)',
     borderRadius: 50,
+  },
+  actionIcons: {
+    justifyContent: 'space-between',
+
+    position: 'absolute',
+    right: 0,
+    alignItems: 'flex-end',
+    padding: 10,
   },
 });

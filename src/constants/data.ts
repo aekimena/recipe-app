@@ -1,4 +1,8 @@
-import {BookmarkCollectionProps, RecipeProps} from '../types/bookmark.type';
+import {
+  BookmarkCollectionProps,
+  ReviewProps,
+  RecipeProps,
+} from '../types/bookmark.type';
 import {NotificationType} from '../types/enums';
 import {NotificationProps} from '../types/notifications.types';
 
@@ -212,5 +216,39 @@ export const dummyNotifications: Array<NotificationProps> = [
     timeStamp: new Date(Date.now()).toISOString(),
     seen: true,
     recipe: dummyRecommendations[0],
+  },
+];
+
+export const dummyRatings: Array<ReviewProps> = [
+  {
+    user: dummyUser,
+    rating: 5,
+    comment:
+      'Amaizing recipe. would try it for my husband! and also my kids; they love your dishes!!',
+  },
+  {
+    user: dummyUser,
+    rating: 5,
+    comment: 'Amaizing recipe. would try it for my husband!',
+  },
+  {
+    user: dummyUser,
+    rating: 5,
+    comment: 'Amaizing recipe. would try it for my husband!',
+  },
+  {
+    user: dummyUser,
+    rating: 5,
+    comment: 'Amaizing recipe. would try it for my husband!',
+  },
+  {
+    user: dummyUser,
+    rating: 5,
+    comment: 'Amaizing recipe. would try it for my husband!',
+  },
+  {
+    user: dummyUser,
+    rating: 5,
+    comment: 'Amaizing recipe. would try it for my husband!',
   },
 ];
