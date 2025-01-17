@@ -39,6 +39,7 @@ export const Reviews = ({recipe}: Props) => {
       <CustomButton
         title="Write a Review"
         onPress={() => navigation.navigate(SCREENS.WRITE_REVIEW, {recipe})}
+        buttonStyle={{width: '70%', alignSelf: 'center'}}
       />
     </View>
   );

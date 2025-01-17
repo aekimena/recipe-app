@@ -333,3 +333,84 @@ export const StarSolid = ({color, size}: Props) => {
     </Container>
   );
 };
+export const EllipsisH = ({color, size}: Props) => {
+  return (
+    <Container size={size}>
+      <Svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke={color ?? 'currentColor'}
+        class="size-6">
+        <Path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+        />
+      </Svg>
+    </Container>
+  );
+};
+export const FireOutline = ({color, size}: Props) => {
+  return (
+    <Container size={size}>
+      <Svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke={color ?? 'currentColor'}
+        class="size-6">
+        <Path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"
+        />
+        <Path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"
+        />
+      </Svg>
+    </Container>
+  );
+};
+export const MailOutline = ({color, size}: Props) => {
+  return (
+    <Container size={size}>
+      <Svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke={color ?? 'currentColor'}
+        class="size-6">
+        <Path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+        />
+      </Svg>
+    </Container>
+  );
+};
+export const PlayOutline = ({color, size}: Props) => {
+  return (
+    <Container size={size}>
+      <Svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke={color ?? 'currentColor'}
+        class="size-6">
+        <Path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+        />
+      </Svg>
+    </Container>
+  );
+};

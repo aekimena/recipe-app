@@ -12,7 +12,12 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {ScreenContainer} from '../../../components/layouts/ScreenContainer';
 import {RecipeRouteStack} from '../../../types/navigator.types';
 import {viewStyles} from '../../../constants/style';
-import {BookmarkOutline, ChevronLeft, LoveOutline} from '../../../assets/svgs';
+import {
+  BookmarkOutline,
+  ChevronLeft,
+  LoveOutline,
+  PlayOutline,
+} from '../../../assets/svgs';
 import colors from '../../../constants/colors';
 import {useSafeTops} from '../../../hooks/useSafeTops';
 import {VSpacer} from '../../../components/ui/Spacer';
@@ -76,6 +81,14 @@ export const RecipeScreen = () => {
                 <VSpacer size={15} />
                 <View style={{...styles.iconContainer}}>
                   <BookmarkOutline color={colors.white} size={20} />
+                </View>
+                <VSpacer size={15} />
+                <View
+                  style={{
+                    ...styles.iconContainer,
+                    backgroundColor: colors.forest100,
+                  }}>
+                  <PlayOutline color={colors.white} size={20} />
                 </View>
               </View>
             </View>

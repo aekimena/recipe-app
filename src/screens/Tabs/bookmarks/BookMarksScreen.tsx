@@ -3,7 +3,7 @@ import React from 'react';
 import {ScreenContainer} from '../../../components/layouts/ScreenContainer';
 import colors from '../../../constants/colors';
 import {Header} from '../../../components/ui/Headers/PageHeader';
-import {VSpacer} from '../../../components/ui/Spacer';
+import {VSpacer, VSpacerSafe} from '../../../components/ui/Spacer';
 import {SearchInput} from '../../../components/ui/inputs/SearchInput';
 import {Collections} from '../../../components/bookmarks/Collections';
 import {dummyBookmarkCollections} from '../../../constants/data';
@@ -20,7 +20,7 @@ export const BookMarksScreen = () => {
           )}
           ListHeaderComponent={
             <>
-              <VSpacer size={30} />
+              <VSpacerSafe />
               <Header title="Bookmarks" />
               <VSpacer size={20} />
               <SearchInput placeholder="Search saved recipes" />

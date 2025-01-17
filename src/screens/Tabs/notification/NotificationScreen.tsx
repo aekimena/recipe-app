@@ -3,7 +3,7 @@ import React from 'react';
 import {ScreenContainer} from '../../../components/layouts/ScreenContainer';
 import colors from '../../../constants/colors';
 import {Header} from '../../../components/ui/Headers/PageHeader';
-import {VSpacer} from '../../../components/ui/Spacer';
+import {VSpacer, VSpacerSafe} from '../../../components/ui/Spacer';
 import {dummyNotifications} from '../../../constants/data';
 import {NotificationBlock} from '../../../components/notifications/NotificationBlock';
 
@@ -14,7 +14,7 @@ export const NotificationScreen = () => {
         <FlatList
           ListHeaderComponent={
             <>
-              <VSpacer size={30} />
+              <VSpacerSafe />
               <Header title="Notifications" />
               <VSpacer size={30} />
             </>

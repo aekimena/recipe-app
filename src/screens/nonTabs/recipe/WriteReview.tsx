@@ -11,9 +11,8 @@ import React, {useState} from 'react';
 import {ScreenContainer} from '../../../components/layouts/ScreenContainer';
 import colors from '../../../constants/colors';
 import {WriteReviewRoute} from '../../../types/navigator.types';
-import {VSpacer} from '../../../components/ui/Spacer';
+import {VSpacer, VSpacerSafe} from '../../../components/ui/Spacer';
 import {GoBackHeader} from '../../../components/ui/Headers/GoBackHeader';
-import {useSafeTops} from '../../../hooks/useSafeTops';
 import {textStyles, viewStyles} from '../../../constants/style';
 import {CustomButton} from '../../../components/ui/Buttons/CustomButton';
 import {StarRating} from '../../../components/bookmarks/StarRating';
@@ -28,7 +27,7 @@ export const WriteReview = ({route}: {route: WriteReviewRoute}) => {
   return (
     <ScreenContainer statusBarTranslucent={true}>
       <View style={{flex: 1, backgroundColor: colors.white}}>
-        <VSpacer size={useSafeTops(30 + (StatusBar.currentHeight ?? 20))} />
+        <VSpacerSafe />
         <View style={{paddingBottom: 20}}>
           <GoBackHeader title="Write a Review" />
         </View>

@@ -1,6 +1,8 @@
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import colors from '../../constants/colors';
+import {VSpacer} from '../ui/Spacer';
+import {useSafeTops} from '../../hooks/useSafeTops';
 
 interface Props {
   children: JSX.Element;
@@ -11,14 +13,14 @@ interface Props {
 
 export const ScreenContainer = ({
   children,
-  statusBarBackground,
-  stausBarColor,
-  statusBarTranslucent = false,
+  statusBarBackground = colors.white,
+  stausBarColor = 'dark-content',
+  statusBarTranslucent = true,
 }: Props) => {
   return (
     <View style={{flex: 1}}>
       <StatusBar
-        barStyle={stausBarColor ?? 'dark-content'}
+        barStyle={stausBarColor}
         backgroundColor={statusBarBackground ?? colors.white}
         translucent={statusBarTranslucent}
         animated
