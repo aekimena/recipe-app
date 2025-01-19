@@ -5,10 +5,12 @@ import {
 } from '../types/bookmark.type';
 import {NotificationType} from '../types/enums';
 import {NotificationProps} from '../types/notifications.types';
+import {UserProfileProps} from '../types/profile.types';
 
-export const dummyUser = {
+export const dummyUser: UserProfileProps = {
   firstName: 'Ae',
   lastName: 'Kimena',
+  username: 'aekimena',
   email: 'aekiemnawork@gmail.com',
   verified: true,
   followers: 4,
@@ -251,4 +253,15 @@ export const dummyRatings: Array<ReviewProps> = [
     rating: 5,
     comment: 'Amaizing recipe. would try it for my husband!',
   },
+];
+
+export const dummySearchResult: Array<UserProfileProps | RecipeProps> = [
+  ...dummyRecommendations,
+  dummyUser,
+  dummyUser,
+  dummyUser,
+  dummyUser,
+  dummyUser,
+  dummyUser,
+  dummyUser,
 ];

@@ -7,11 +7,16 @@ import {textStyles, viewStyles} from '../../../constants/style';
 interface Props {
   placeholder?: string;
   onChangeText?: (value: string) => void;
+  includePad?: boolean;
 }
 
-export const SearchInput = ({placeholder, onChangeText}: Props) => {
+export const SearchInput = ({
+  placeholder,
+  onChangeText,
+  includePad = true,
+}: Props) => {
   return (
-    <View style={{paddingHorizontal: 20}}>
+    <View style={{paddingHorizontal: includePad ? 20 : 0}}>
       <View style={styles.container}>
         <SearchOutline color={colors.black200} size={20} />
         <TextInput

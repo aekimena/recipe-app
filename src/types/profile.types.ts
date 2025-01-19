@@ -6,6 +6,7 @@ export type UserProfileProps = {
   followers: number;
   following: number;
   verified: boolean;
+  username: string;
 };
 
 export type UserStoreProps = {

@@ -18,6 +18,7 @@ export type TabsNavigatorProps = {
 
 export type NonTabsNavigatorProps = {
   RECIPE_STACK: NavigatorScreenParams<RecipeNavigatorProp>;
+  [SCREENS.SEARCH_ALL]: undefined;
 };
 
 export type AppNavigatorProps = {
@@ -39,6 +40,9 @@ export type RecipeNavigatorProp = {
 
 export type RecipeStackNavigatorProp = {
   [SCREENS.RECIPE_STACK]: NavigatorScreenParams<RecipeNavigatorProp>;
+};
+export type SearchAllStackNavigatorProp = {
+  [SCREENS.SEARCH_ALL]: undefined;
 };
 
 export type RecipeNavigatorParam = {
@@ -63,5 +67,11 @@ export type RecipeRouteStack = RouteProp<{
 export type WriteReviewRoute = RouteProp<{
   [SCREENS.WRITE_REVIEW]: {
     recipe: RecipeProps;
+  };
+}>;
+
+export type SearchAllStack = NativeStackNavigationProp<{
+  [SCREENS.NON_TABS]: {
+    screen: keyof SearchAllStackNavigatorProp;
   };
 }>;
